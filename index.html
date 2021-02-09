@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标特效，跟随鼠标移动线条</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+<!--    <script type="module" src="/static/mobile/index/js/index.js"></script>-->
+</head>
+<body>
+
+<div id="app">
+    <van-swipe :autoplay="5000">
+        <van-swipe-item v-for="(image, index) in images" :key="index">
+            <img v-lazy="image" />
+        </van-swipe-item>
+    </van-swipe>
+</div>
+
+
+
+<script type = "text/javascript">
+    Vue.use(vant.Lazyload);
+    var  data = {'images' : [
+            '/static/mobile/common/images/dinner1.jpg',
+            '/static/mobile/common/images/dinner2.png',
+        ]}
+    new Vue({
+        el: '#app',
+        data: data,
+        mounted () {}
+    });
+</script>
+</body>
+</html>
